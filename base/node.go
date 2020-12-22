@@ -7,7 +7,8 @@ import (
 )
 
 type NodeOpn interface {
-	FindSuccessor()
+	FindSuccessor() *Node
+	InsertNode(ip string) *Node
 }
 
 type Node struct {
@@ -25,4 +26,12 @@ func NewNode() (*Node, error) {
 			Ft: NewFingertable(),
 		}, nil
 	}
+}
+
+func (n *Node) FindSuccessor() *Node {
+	return nil
+}
+
+func (n *Node) InsertNode(ip string) *Node {
+	return nil
 }

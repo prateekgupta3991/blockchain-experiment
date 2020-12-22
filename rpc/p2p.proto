@@ -1,0 +1,16 @@
+syntax = "proto3";
+package rpc;
+
+option go_package = "rpc/gen;rpc";
+
+message DestinationNodeDetails {
+    string nid = 1;
+}
+
+message KeyDetails {
+    string hash = 1;
+}
+
+service DestinationNode {
+    rpc findDestNode(KeyDetails) returns (DestinationNodeDetails) {}
+}
