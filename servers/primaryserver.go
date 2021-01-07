@@ -4,11 +4,13 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/prateekgupta3991/blockchain-experiment/base"
 	rpc "github.com/prateekgupta3991/blockchain-experiment/rpc/gen"
 )
 
 type Srvr struct {
 	rpc.UnimplementedNodeOpsServer
+	Primary *base.Node 
 }
 
 func (s *Srvr) FindDestNode(ctx context.Context, k *rpc.KeyDetails) (*rpc.DestinationNodeDetails, error) {
