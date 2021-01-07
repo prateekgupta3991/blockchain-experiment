@@ -123,6 +123,195 @@ func (x *KeyDetails) GetHash() string {
 	return ""
 }
 
+type NodeDetails struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Ip string `protobuf:"bytes,1,opt,name=ip,proto3" json:"ip,omitempty"`
+	M  int64  `protobuf:"varint,2,opt,name=m,proto3" json:"m,omitempty"`
+}
+
+func (x *NodeDetails) Reset() {
+	*x = NodeDetails{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_rpc_p2p_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *NodeDetails) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NodeDetails) ProtoMessage() {}
+
+func (x *NodeDetails) ProtoReflect() protoreflect.Message {
+	mi := &file_rpc_p2p_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NodeDetails.ProtoReflect.Descriptor instead.
+func (*NodeDetails) Descriptor() ([]byte, []int) {
+	return file_rpc_p2p_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *NodeDetails) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *NodeDetails) GetM() int64 {
+	if x != nil {
+		return x.M
+	}
+	return 0
+}
+
+type TableDetails struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StartVal int64 `protobuf:"varint,1,opt,name=StartVal,proto3" json:"StartVal,omitempty"`
+	EndVal   int64 `protobuf:"varint,2,opt,name=EndVal,proto3" json:"EndVal,omitempty"`
+	Succesor int64 `protobuf:"varint,3,opt,name=Succesor,proto3" json:"Succesor,omitempty"`
+}
+
+func (x *TableDetails) Reset() {
+	*x = TableDetails{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_rpc_p2p_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TableDetails) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TableDetails) ProtoMessage() {}
+
+func (x *TableDetails) ProtoReflect() protoreflect.Message {
+	mi := &file_rpc_p2p_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TableDetails.ProtoReflect.Descriptor instead.
+func (*TableDetails) Descriptor() ([]byte, []int) {
+	return file_rpc_p2p_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *TableDetails) GetStartVal() int64 {
+	if x != nil {
+		return x.StartVal
+	}
+	return 0
+}
+
+func (x *TableDetails) GetEndVal() int64 {
+	if x != nil {
+		return x.EndVal
+	}
+	return 0
+}
+
+func (x *TableDetails) GetSuccesor() int64 {
+	if x != nil {
+		return x.Succesor
+	}
+	return 0
+}
+
+type NewNodeDetails struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Nid string                  `protobuf:"bytes,1,opt,name=nid,proto3" json:"nid,omitempty"`
+	Ip  string                  `protobuf:"bytes,2,opt,name=ip,proto3" json:"ip,omitempty"`
+	Ft  map[int64]*TableDetails `protobuf:"bytes,3,rep,name=ft,proto3" json:"ft,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Kv  map[int64]int64         `protobuf:"bytes,4,rep,name=kv,proto3" json:"kv,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"varint,2,opt,name=value,proto3"`
+}
+
+func (x *NewNodeDetails) Reset() {
+	*x = NewNodeDetails{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_rpc_p2p_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *NewNodeDetails) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewNodeDetails) ProtoMessage() {}
+
+func (x *NewNodeDetails) ProtoReflect() protoreflect.Message {
+	mi := &file_rpc_p2p_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewNodeDetails.ProtoReflect.Descriptor instead.
+func (*NewNodeDetails) Descriptor() ([]byte, []int) {
+	return file_rpc_p2p_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *NewNodeDetails) GetNid() string {
+	if x != nil {
+		return x.Nid
+	}
+	return ""
+}
+
+func (x *NewNodeDetails) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *NewNodeDetails) GetFt() map[int64]*TableDetails {
+	if x != nil {
+		return x.Ft
+	}
+	return nil
+}
+
+func (x *NewNodeDetails) GetKv() map[int64]int64 {
+	if x != nil {
+		return x.Kv
+	}
+	return nil
+}
+
 var File_rpc_p2p_proto protoreflect.FileDescriptor
 
 var file_rpc_p2p_proto_rawDesc = []byte{
@@ -132,13 +321,42 @@ var file_rpc_p2p_proto_rawDesc = []byte{
 	0x0a, 0x03, 0x6e, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6e, 0x69, 0x64,
 	0x22, 0x20, 0x0a, 0x0a, 0x4b, 0x65, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x12,
 	0x0a, 0x04, 0x68, 0x61, 0x73, 0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x61,
-	0x73, 0x68, 0x32, 0x51, 0x0a, 0x0f, 0x44, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x3e, 0x0a, 0x0c, 0x66, 0x69, 0x6e, 0x64, 0x44, 0x65, 0x73,
-	0x74, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x0f, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4b, 0x65, 0x79, 0x44,
-	0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x1b, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x44, 0x65, 0x73,
-	0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61,
-	0x69, 0x6c, 0x73, 0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x65, 0x6e,
-	0x3b, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x68, 0x22, 0x2b, 0x0a, 0x0b, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
+	0x73, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
+	0x70, 0x12, 0x0c, 0x0a, 0x01, 0x6d, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x6d, 0x22,
+	0x5e, 0x0a, 0x0c, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12,
+	0x1a, 0x0a, 0x08, 0x53, 0x74, 0x61, 0x72, 0x74, 0x56, 0x61, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x08, 0x53, 0x74, 0x61, 0x72, 0x74, 0x56, 0x61, 0x6c, 0x12, 0x16, 0x0a, 0x06, 0x45,
+	0x6e, 0x64, 0x56, 0x61, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x45, 0x6e, 0x64,
+	0x56, 0x61, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x53, 0x75, 0x63, 0x63, 0x65, 0x73, 0x6f, 0x72, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x53, 0x75, 0x63, 0x63, 0x65, 0x73, 0x6f, 0x72, 0x22,
+	0x8d, 0x02, 0x0a, 0x0e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69,
+	0x6c, 0x73, 0x12, 0x10, 0x0a, 0x03, 0x6e, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x03, 0x6e, 0x69, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x69, 0x70, 0x12, 0x2b, 0x0a, 0x02, 0x66, 0x74, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x1b, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65,
+	0x74, 0x61, 0x69, 0x6c, 0x73, 0x2e, 0x46, 0x74, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x02, 0x66,
+	0x74, 0x12, 0x2b, 0x0a, 0x02, 0x6b, 0x76, 0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1b, 0x2e,
+	0x72, 0x70, 0x63, 0x2e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69,
+	0x6c, 0x73, 0x2e, 0x4b, 0x76, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x02, 0x6b, 0x76, 0x1a, 0x48,
+	0x0a, 0x07, 0x46, 0x74, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x27, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x72, 0x70, 0x63,
+	0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x1a, 0x35, 0x0a, 0x07, 0x4b, 0x76, 0x45, 0x6e,
+	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
+	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x32,
+	0x80, 0x01, 0x0a, 0x07, 0x4e, 0x6f, 0x64, 0x65, 0x4f, 0x70, 0x73, 0x12, 0x3e, 0x0a, 0x0c, 0x66,
+	0x69, 0x6e, 0x64, 0x44, 0x65, 0x73, 0x74, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x0f, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x4b, 0x65, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x1b, 0x2e, 0x72,
+	0x70, 0x63, 0x2e, 0x44, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x6f,
+	0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x35, 0x0a, 0x0a, 0x69,
+	0x6e, 0x73, 0x65, 0x72, 0x74, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x10, 0x2e, 0x72, 0x70, 0x63, 0x2e,
+	0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x13, 0x2e, 0x72, 0x70,
+	0x63, 0x2e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73,
+	0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0x3b, 0x72, 0x70,
+	0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -153,19 +371,29 @@ func file_rpc_p2p_proto_rawDescGZIP() []byte {
 	return file_rpc_p2p_proto_rawDescData
 }
 
-var file_rpc_p2p_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_rpc_p2p_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_rpc_p2p_proto_goTypes = []interface{}{
 	(*DestinationNodeDetails)(nil), // 0: rpc.DestinationNodeDetails
 	(*KeyDetails)(nil),             // 1: rpc.KeyDetails
+	(*NodeDetails)(nil),            // 2: rpc.NodeDetails
+	(*TableDetails)(nil),           // 3: rpc.TableDetails
+	(*NewNodeDetails)(nil),         // 4: rpc.NewNodeDetails
+	nil,                            // 5: rpc.NewNodeDetails.FtEntry
+	nil,                            // 6: rpc.NewNodeDetails.KvEntry
 }
 var file_rpc_p2p_proto_depIdxs = []int32{
-	1, // 0: rpc.DestinationNode.findDestNode:input_type -> rpc.KeyDetails
-	0, // 1: rpc.DestinationNode.findDestNode:output_type -> rpc.DestinationNodeDetails
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	5, // 0: rpc.NewNodeDetails.ft:type_name -> rpc.NewNodeDetails.FtEntry
+	6, // 1: rpc.NewNodeDetails.kv:type_name -> rpc.NewNodeDetails.KvEntry
+	3, // 2: rpc.NewNodeDetails.FtEntry.value:type_name -> rpc.TableDetails
+	1, // 3: rpc.NodeOps.findDestNode:input_type -> rpc.KeyDetails
+	2, // 4: rpc.NodeOps.insertNode:input_type -> rpc.NodeDetails
+	0, // 5: rpc.NodeOps.findDestNode:output_type -> rpc.DestinationNodeDetails
+	4, // 6: rpc.NodeOps.insertNode:output_type -> rpc.NewNodeDetails
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_rpc_p2p_proto_init() }
@@ -198,6 +426,42 @@ func file_rpc_p2p_proto_init() {
 				return nil
 			}
 		}
+		file_rpc_p2p_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*NodeDetails); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_rpc_p2p_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TableDetails); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_rpc_p2p_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*NewNodeDetails); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -205,7 +469,7 @@ func file_rpc_p2p_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_rpc_p2p_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -227,72 +491,108 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// DestinationNodeClient is the client API for DestinationNode service.
+// NodeOpsClient is the client API for NodeOps service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type DestinationNodeClient interface {
+type NodeOpsClient interface {
 	FindDestNode(ctx context.Context, in *KeyDetails, opts ...grpc.CallOption) (*DestinationNodeDetails, error)
+	InsertNode(ctx context.Context, in *NodeDetails, opts ...grpc.CallOption) (*NewNodeDetails, error)
 }
 
-type destinationNodeClient struct {
+type nodeOpsClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDestinationNodeClient(cc grpc.ClientConnInterface) DestinationNodeClient {
-	return &destinationNodeClient{cc}
+func NewNodeOpsClient(cc grpc.ClientConnInterface) NodeOpsClient {
+	return &nodeOpsClient{cc}
 }
 
-func (c *destinationNodeClient) FindDestNode(ctx context.Context, in *KeyDetails, opts ...grpc.CallOption) (*DestinationNodeDetails, error) {
+func (c *nodeOpsClient) FindDestNode(ctx context.Context, in *KeyDetails, opts ...grpc.CallOption) (*DestinationNodeDetails, error) {
 	out := new(DestinationNodeDetails)
-	err := c.cc.Invoke(ctx, "/rpc.DestinationNode/findDestNode", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/rpc.NodeOps/findDestNode", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DestinationNodeServer is the server API for DestinationNode service.
-type DestinationNodeServer interface {
+func (c *nodeOpsClient) InsertNode(ctx context.Context, in *NodeDetails, opts ...grpc.CallOption) (*NewNodeDetails, error) {
+	out := new(NewNodeDetails)
+	err := c.cc.Invoke(ctx, "/rpc.NodeOps/insertNode", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NodeOpsServer is the server API for NodeOps service.
+type NodeOpsServer interface {
 	FindDestNode(context.Context, *KeyDetails) (*DestinationNodeDetails, error)
+	InsertNode(context.Context, *NodeDetails) (*NewNodeDetails, error)
 }
 
-// UnimplementedDestinationNodeServer can be embedded to have forward compatible implementations.
-type UnimplementedDestinationNodeServer struct {
+// UnimplementedNodeOpsServer can be embedded to have forward compatible implementations.
+type UnimplementedNodeOpsServer struct {
 }
 
-func (*UnimplementedDestinationNodeServer) FindDestNode(context.Context, *KeyDetails) (*DestinationNodeDetails, error) {
+func (*UnimplementedNodeOpsServer) FindDestNode(context.Context, *KeyDetails) (*DestinationNodeDetails, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindDestNode not implemented")
 }
-
-func RegisterDestinationNodeServer(s *grpc.Server, srv DestinationNodeServer) {
-	s.RegisterService(&_DestinationNode_serviceDesc, srv)
+func (*UnimplementedNodeOpsServer) InsertNode(context.Context, *NodeDetails) (*NewNodeDetails, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InsertNode not implemented")
 }
 
-func _DestinationNode_FindDestNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func RegisterNodeOpsServer(s *grpc.Server, srv NodeOpsServer) {
+	s.RegisterService(&_NodeOps_serviceDesc, srv)
+}
+
+func _NodeOps_FindDestNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(KeyDetails)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DestinationNodeServer).FindDestNode(ctx, in)
+		return srv.(NodeOpsServer).FindDestNode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.DestinationNode/FindDestNode",
+		FullMethod: "/rpc.NodeOps/FindDestNode",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DestinationNodeServer).FindDestNode(ctx, req.(*KeyDetails))
+		return srv.(NodeOpsServer).FindDestNode(ctx, req.(*KeyDetails))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _DestinationNode_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.DestinationNode",
-	HandlerType: (*DestinationNodeServer)(nil),
+func _NodeOps_InsertNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NodeDetails)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NodeOpsServer).InsertNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/rpc.NodeOps/InsertNode",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NodeOpsServer).InsertNode(ctx, req.(*NodeDetails))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _NodeOps_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "rpc.NodeOps",
+	HandlerType: (*NodeOpsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "findDestNode",
-			Handler:    _DestinationNode_FindDestNode_Handler,
+			Handler:    _NodeOps_FindDestNode_Handler,
+		},
+		{
+			MethodName: "insertNode",
+			Handler:    _NodeOps_InsertNode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -7,26 +7,30 @@ import (
 )
 
 type TableOperation interface {
-	InsertValue(k interface{}, v interface{}) error
+	InsertValue(k interface{}) error
 	ReadValue(k interface{}) (interface{}, error)
 }
 
 type Table struct {
-	Entry map[string]TableVal
+	Entry map[int64]TableVal
+	KV map[int64]int64
 }
 
 type TableVal struct {
-	Nid string
-	Val interface{}
+	Nid int64
+	StartVal int64
+	EndVal int64
+	Succesor int64
 }
 
 func NewFingertable() *Table {
 	return &Table{
-		Entry: make(map[string]TableVal, 10),
+		Entry: make(map[int64]TableVal, 10),
+		KV:  make(map[int64]int64, 10),
 	}
 }
 
-func (t *Table) InsertValue(k interface{}, v interface{}) error {
+func (t *Table) InsertValue(k interface{}) error {
 	if hash, err := util.CalcHash(k); err != nil {
 		log.Printf("Error : %s", err.Error())
 		return err
@@ -35,10 +39,14 @@ func (t *Table) InsertValue(k interface{}, v interface{}) error {
 			log.Printf("Error : %s", err.Error())
 			return err
 		} else {
-			t.Entry[hash] = TableVal{
-				Nid: nid,
-				Val: v,
-			}
+			// t.Entry[hash] = TableVal{
+			// 	Nid: nid,
+			// 	StartVal: v,
+			// 	EndVal: ,
+			// }
+			log.Printf("hash - %v, nid - %v", hash, nid)
+			val := int64(k.(int))
+			t.KV[val] = val
 			return nil
 		}
 	}
@@ -49,6 +57,8 @@ func (t *Table) ReadValue(k interface{}) (interface{}, error) {
 		log.Printf("Error : %s", err.Error())
 		return nil, err
 	} else {
-		return t.Entry[hash], nil
+		log.Printf("hash - %v", hash)
+		val := k.(int64)
+		return t.KV[val], nil
 	}
 }
