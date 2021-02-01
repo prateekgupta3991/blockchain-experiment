@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/prateekgupta3991/blockchain-experiment/base"
-	rpc "github.com/prateekgupta3991/blockchain-experiment/rpc/gen"
+	rpc "github.com/prateekgupta3991/vault/rpc/gen"
 )
 
 type Srvr struct {

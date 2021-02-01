@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	rpc "github.com/prateekgupta3991/blockchain-experiment/rpc/gen"
+	rpc "github.com/prateekgupta3991/vault/rpc/gen"
 	"google.golang.org/grpc"
 )
 
@@ -22,7 +22,7 @@ func main() {
 	defer conn.Close()
 
 	c := rpc.NewNodeOpsClient(conn)
-	msg := rpc.KeyDetails {
+	msg := rpc.KeyDetails{
 		Hash: "123",
 	}
 	if resp, err := c.FindDestNode(context.Background(), &msg); err != nil {
@@ -33,7 +33,7 @@ func main() {
 
 	nd := rpc.NodeDetails{
 		Ip: "123.123.123.123",
-		M: 3,
+		M:  3,
 	}
 	if resp, err := c.InsertNode(context.Background(), &nd); err != nil {
 		log.Fatalf("Error InsertNode : %s", err)
@@ -53,18 +53,18 @@ func bulkNodeInserts(c rpc.NodeOpsClient) {
 
 	waitChan := make(chan struct{})
 
-	go func ()  {
+	go func() {
 		for i := 1; i < 50000; i++ {
-			stream.Send(&rpc.NodeDetails {
+			stream.Send(&rpc.NodeDetails{
 				Ip: strconv.Itoa(i),
-				M: int64(i),
+				M:  int64(i),
 			})
 		}
 		fmt.Println("Request sent Timestamp : ", time.Now())
 		stream.CloseSend()
 	}()
 
-	go func () {
+	go func() {
 		for {
 			res, err := stream.Recv()
 			if err == io.EOF {
