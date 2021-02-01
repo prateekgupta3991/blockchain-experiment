@@ -2,7 +2,11 @@ package main
 
 import (
 	"context"
+	"fmt"
+	"io"
 	"log"
+	"strconv"
+	"time"
 
 	rpc "github.com/prateekgupta3991/blockchain-experiment/rpc/gen"
 	"google.golang.org/grpc"
@@ -36,4 +40,45 @@ func main() {
 	} else {
 		log.Printf("Response from server: %s - %s", resp.Ip, resp.Nid)
 	}
+
+	bulkNodeInserts(c)
+}
+
+func bulkNodeInserts(c rpc.NodeOpsClient) {
+	stream, err := c.InsertNodes(context.Background())
+	if err != nil {
+		fmt.Errorf("Error encountered in client : %v", err)
+		return
+	}
+
+	waitChan := make(chan struct{})
+
+	go func ()  {
+		for i := 1; i < 50000; i++ {
+			stream.Send(&rpc.NodeDetails {
+				Ip: strconv.Itoa(i),
+				M: int64(i),
+			})
+		}
+		fmt.Println("Request sent Timestamp : ", time.Now())
+		stream.CloseSend()
+	}()
+
+	go func () {
+		for {
+			res, err := stream.Recv()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				fmt.Println("Error encountered while receiving response in client : ", err)
+				return
+			}
+
+			fmt.Println("Server response : ", res)
+		}
+		fmt.Println("Response received Timestamp : ", time.Now())
+		close(waitChan)
+	}()
+	<-waitChan
 }

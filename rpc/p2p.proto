@@ -32,4 +32,5 @@ message NewNodeDetails {
 service NodeOps {
     rpc findDestNode(KeyDetails) returns (DestinationNodeDetails) {}
     rpc insertNode(NodeDetails) returns (NewNodeDetails) {}
+    rpc insertNodes(stream NodeDetails) returns ( stream NewNodeDetails) {}
 }

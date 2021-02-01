@@ -347,7 +347,7 @@ var file_rpc_p2p_proto_rawDesc = []byte{
 	0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03,
 	0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x32,
-	0x80, 0x01, 0x0a, 0x07, 0x4e, 0x6f, 0x64, 0x65, 0x4f, 0x70, 0x73, 0x12, 0x3e, 0x0a, 0x0c, 0x66,
+	0xbc, 0x01, 0x0a, 0x07, 0x4e, 0x6f, 0x64, 0x65, 0x4f, 0x70, 0x73, 0x12, 0x3e, 0x0a, 0x0c, 0x66,
 	0x69, 0x6e, 0x64, 0x44, 0x65, 0x73, 0x74, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x0f, 0x2e, 0x72, 0x70,
 	0x63, 0x2e, 0x4b, 0x65, 0x79, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x1b, 0x2e, 0x72,
 	0x70, 0x63, 0x2e, 0x44, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x4e, 0x6f,
@@ -355,8 +355,12 @@ var file_rpc_p2p_proto_rawDesc = []byte{
 	0x6e, 0x73, 0x65, 0x72, 0x74, 0x4e, 0x6f, 0x64, 0x65, 0x12, 0x10, 0x2e, 0x72, 0x70, 0x63, 0x2e,
 	0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x13, 0x2e, 0x72, 0x70,
 	0x63, 0x2e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73,
-	0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0x3b, 0x72, 0x70,
-	0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x00, 0x12, 0x3a, 0x0a, 0x0b, 0x69, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x4e, 0x6f, 0x64, 0x65,
+	0x73, 0x12, 0x10, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x6f, 0x64, 0x65, 0x44, 0x65, 0x74, 0x61,
+	0x69, 0x6c, 0x73, 0x1a, 0x13, 0x2e, 0x72, 0x70, 0x63, 0x2e, 0x4e, 0x65, 0x77, 0x4e, 0x6f, 0x64,
+	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x42, 0x0d,
+	0x5a, 0x0b, 0x72, 0x70, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0x3b, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -387,10 +391,12 @@ var file_rpc_p2p_proto_depIdxs = []int32{
 	3, // 2: rpc.NewNodeDetails.FtEntry.value:type_name -> rpc.TableDetails
 	1, // 3: rpc.NodeOps.findDestNode:input_type -> rpc.KeyDetails
 	2, // 4: rpc.NodeOps.insertNode:input_type -> rpc.NodeDetails
-	0, // 5: rpc.NodeOps.findDestNode:output_type -> rpc.DestinationNodeDetails
-	4, // 6: rpc.NodeOps.insertNode:output_type -> rpc.NewNodeDetails
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
+	2, // 5: rpc.NodeOps.insertNodes:input_type -> rpc.NodeDetails
+	0, // 6: rpc.NodeOps.findDestNode:output_type -> rpc.DestinationNodeDetails
+	4, // 7: rpc.NodeOps.insertNode:output_type -> rpc.NewNodeDetails
+	4, // 8: rpc.NodeOps.insertNodes:output_type -> rpc.NewNodeDetails
+	6, // [6:9] is the sub-list for method output_type
+	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
 	3, // [3:3] is the sub-list for extension extendee
 	0, // [0:3] is the sub-list for field type_name
@@ -497,6 +503,7 @@ const _ = grpc.SupportPackageIsVersion6
 type NodeOpsClient interface {
 	FindDestNode(ctx context.Context, in *KeyDetails, opts ...grpc.CallOption) (*DestinationNodeDetails, error)
 	InsertNode(ctx context.Context, in *NodeDetails, opts ...grpc.CallOption) (*NewNodeDetails, error)
+	InsertNodes(ctx context.Context, opts ...grpc.CallOption) (NodeOps_InsertNodesClient, error)
 }
 
 type nodeOpsClient struct {
@@ -525,10 +532,42 @@ func (c *nodeOpsClient) InsertNode(ctx context.Context, in *NodeDetails, opts ..
 	return out, nil
 }
 
+func (c *nodeOpsClient) InsertNodes(ctx context.Context, opts ...grpc.CallOption) (NodeOps_InsertNodesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_NodeOps_serviceDesc.Streams[0], "/rpc.NodeOps/insertNodes", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &nodeOpsInsertNodesClient{stream}
+	return x, nil
+}
+
+type NodeOps_InsertNodesClient interface {
+	Send(*NodeDetails) error
+	Recv() (*NewNodeDetails, error)
+	grpc.ClientStream
+}
+
+type nodeOpsInsertNodesClient struct {
+	grpc.ClientStream
+}
+
+func (x *nodeOpsInsertNodesClient) Send(m *NodeDetails) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *nodeOpsInsertNodesClient) Recv() (*NewNodeDetails, error) {
+	m := new(NewNodeDetails)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // NodeOpsServer is the server API for NodeOps service.
 type NodeOpsServer interface {
 	FindDestNode(context.Context, *KeyDetails) (*DestinationNodeDetails, error)
 	InsertNode(context.Context, *NodeDetails) (*NewNodeDetails, error)
+	InsertNodes(NodeOps_InsertNodesServer) error
 }
 
 // UnimplementedNodeOpsServer can be embedded to have forward compatible implementations.
@@ -540,6 +579,9 @@ func (*UnimplementedNodeOpsServer) FindDestNode(context.Context, *KeyDetails) (*
 }
 func (*UnimplementedNodeOpsServer) InsertNode(context.Context, *NodeDetails) (*NewNodeDetails, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertNode not implemented")
+}
+func (*UnimplementedNodeOpsServer) InsertNodes(NodeOps_InsertNodesServer) error {
+	return status.Errorf(codes.Unimplemented, "method InsertNodes not implemented")
 }
 
 func RegisterNodeOpsServer(s *grpc.Server, srv NodeOpsServer) {
@@ -582,6 +624,32 @@ func _NodeOps_InsertNode_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NodeOps_InsertNodes_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(NodeOpsServer).InsertNodes(&nodeOpsInsertNodesServer{stream})
+}
+
+type NodeOps_InsertNodesServer interface {
+	Send(*NewNodeDetails) error
+	Recv() (*NodeDetails, error)
+	grpc.ServerStream
+}
+
+type nodeOpsInsertNodesServer struct {
+	grpc.ServerStream
+}
+
+func (x *nodeOpsInsertNodesServer) Send(m *NewNodeDetails) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *nodeOpsInsertNodesServer) Recv() (*NodeDetails, error) {
+	m := new(NodeDetails)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _NodeOps_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "rpc.NodeOps",
 	HandlerType: (*NodeOpsServer)(nil),
@@ -595,6 +663,13 @@ var _NodeOps_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NodeOps_InsertNode_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "insertNodes",
+			Handler:       _NodeOps_InsertNodes_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "rpc/p2p.proto",
 }
