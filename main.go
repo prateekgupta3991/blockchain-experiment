@@ -6,7 +6,7 @@ import (
 	"net"
 
 	"github.com/prateekgupta3991/blockchain-experiment/base"
-	genSer "github.com/prateekgupta3991/blockchain-experiment/rpc/gen"
+	genSer "github.com/prateekgupta3991/vault/rpc/gen"
 	svr "github.com/prateekgupta3991/blockchain-experiment/servers"
 	"google.golang.org/grpc"
 )
