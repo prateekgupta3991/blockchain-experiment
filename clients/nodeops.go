@@ -10,6 +10,8 @@ import (
 
 	rpc "github.com/prateekgupta3991/vault/rpc/gen"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 func main() {
@@ -36,12 +38,24 @@ func main() {
 		M:  3,
 	}
 	if resp, err := c.InsertNode(context.Background(), &nd); err != nil {
-		log.Fatalf("Error InsertNode : %s", err)
+		log.Printf("Error InsertNode : %s", err)
+		if e, ok := status.FromError(err); ok {
+			switch e.Code() {
+			case codes.InvalidArgument:
+				fmt.Println(e.Message())
+			case codes.Internal:
+				fmt.Println("Has Internal Error")
+			case codes.Aborted:
+				fmt.Println("gRPC Aborted the call")
+			default:
+				fmt.Println(e.Code(), e.Message())
+			}
+		}
 	} else {
 		log.Printf("Response from server: %s - %s", resp.Ip, resp.Nid)
 	}
 
-	bulkNodeInserts(c)
+	// bulkNodeInserts(c)
 }
 
 func bulkNodeInserts(c rpc.NodeOpsClient) {
